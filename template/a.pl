@@ -10,6 +10,12 @@ use Moment;
 use Test::More;
 use Data::Dumper;
 
+$Data::Dumper::Sortkeys = 1;
+
+sub p {
+    say Dumper $_[0];
+}
+
 sub read_file {
     my ($file_name) = @_;
 
@@ -62,9 +68,19 @@ sub get_field {
     return @field;
 }
 
-sub main {
+sub min {
+    my ($one, $two) = @_;
 
-    $Data::Dumper::Sortkeys = 1;
+    return $one < $two ? $one : $two;
+}
+
+sub max {
+    my ($one, $two) = @_;
+
+    return $one > $two ? $one : $two;
+}
+
+sub main {
 
     my $answer = 0;
 
